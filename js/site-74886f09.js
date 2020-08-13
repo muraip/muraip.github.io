@@ -1,0 +1,1 @@
+$("#menu-lang a").click(function(){$$.setCookie("lang",$(this).data("lang"))}),$("#select-lang").change(function(){$$.setCookie("lang",this.value.substring(0,2)),window.location.href=this.value.substring(3)}),lightbox.option({resizeDuration:100,imageFadeDuration:100,fadeDuration:100,albumLabel:document.title+": %1 / %2"});
