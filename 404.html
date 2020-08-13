@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset=utf-8>
+    <title>MURA IP</title>
+    <script>
+    (function() {
+        function cookie(name) {
+            var nameEQ = name + '=';
+            var ca = document.cookie.split('; ');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length);
+            }
+            return null;
+        }
+
+        var lang = cookie('lang');
+        if ('es|en|de|fr'.indexOf(lang) == -1)
+            lang = 'en';
+
+        window.location.replace('/' + lang + '/404');
+    }) ();
+    </script>    
+</head>
+</html>
