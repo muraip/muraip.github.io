@@ -371,7 +371,7 @@ navegador web.</p>
                     <p>¡Oops! Algo ha ido mal. Tu petición no ha podido ser registrada. Por favor, prueba de nuevo más tarde.</p>
                 </div>
 
-                <form class="row" id="contact-form" method="post" action="https://forms.iddero.com/contact">
+                <form class="row" id="contact-form" method="post">
                     <input type="hidden" name="lang" value="es">
                     <input type="hidden" name="referer" value="https://www.muraip.com/es/#contact">
 
@@ -426,6 +426,9 @@ navegador web.</p>
         if (res) {
             $$.hide('contact-form');
             $$.removeClass((res == 'ok') ? 'res_ok' : 'res_err', 'd-none');
+        } else {
+            // https://stackoverflow.com/a/66030492/450398
+            $$.get('contact-form').setAttribute('action', 'https://forms.iddero.com/contact');
         }
     })();
     </script>
@@ -468,6 +471,6 @@ navegador web.</p>
     <script src="/js/parallax-5d71beb5.js"></script>
     <script src="/js/isotope.min-6ab5675d.js"></script>
     <script src="/js/smooth-scroll.min-60b20414.js"></script>
-    <script src="/js/scripts-8d047132.js"></script>
+    <script src="/js/scripts-6150b188.js"></script>
 </body>
 </html>
