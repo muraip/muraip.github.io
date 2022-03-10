@@ -412,9 +412,11 @@ standard web browser.</p>
                     </div>
                     <div class="col-12">
                         <p class="small form-note">(*) All fields are mandatory</p>
+                        <div class="g-recaptcha" data-sitekey="6LeC6cweAAAAAPvb_u7RrGmFGAgc_0J21SBPt3is" data-callback="recaptcha_complete" data-theme="dark"></div>
+                        <br/>
                     </div>
                     <div class="col-md-5 col-lg-4 col-6">
-                        <button type="submit" class="btn btn--primary type--uppercase">Submit</button>
+                        <button id="contact-submit" type="submit" class="btn btn--primary type--uppercase" disabled>Submit</button>
                     </div>
                 </form>
             </div> <!-- col -->
@@ -428,11 +430,14 @@ standard web browser.</p>
             $$.hide('contact-form');
             $$.removeClass((res == 'ok') ? 'res_ok' : 'res_err', 'd-none');
         } else {
-            // https://stackoverflow.com/a/66030492/450398
-            $$.get('contact-form').setAttribute('action', 'https://forms.iddero.com/contact');
+            window.recaptcha_complete = function() {
+                $$.get('contact-submit').removeAttribute('disabled');
+                $$.get('contact-form').setAttribute('action', 'https://forms.iddero.com/contact');
+            };
         }
     })();
     </script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </section>
 
 
