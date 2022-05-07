@@ -5,11 +5,11 @@
     <link rel="alternate" href="https://www.muraip.com/" hreflang="x-default">
     <link rel="alternate" href="https://www.muraip.com/en" hreflang="en">
     <link rel="alternate" href="https://www.muraip.com/es" hreflang="es">
-    <link rel="alternate" href="https://www.muraip.com/de" hreflang="de">
-    <link rel="alternate" href="https://www.muraip.com/fr" hreflang="fr">
     <title>MURA IP</title>
     <script>
     (function() {
+        var siteLangs = 'en|es|';
+
         function cookie(name) {
             var nameEQ = name + '=';
             var ca = document.cookie.split('; ');
@@ -32,7 +32,7 @@
 
                 for (var i = 0; i < langs.length; i++) {
                     var lang = langs[i].substring(0, 2);
-                    if ('en|es|de|fr'.indexOf(lang) != -1)
+                    if (siteLangs.indexOf(lang) != -1)
                         return lang;
                 }
             }
@@ -41,11 +41,11 @@
             }
 
             // NOT REACHED
-            return 'en';
+            return siteLangs.split("|", 1);
         }
 
         var lang = cookie('lang');
-        if ('es|en|de|fr'.indexOf(lang) == -1)
+        if (siteLangs.indexOf(lang) == -1)
             lang = detect();
 
         window.location.replace('/' + lang);
