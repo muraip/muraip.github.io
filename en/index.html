@@ -21,7 +21,7 @@
     <link href="/css/lightbox.min-f10e351f.css" rel="stylesheet" />
     <link href="/css/flickity-372252d0.css" rel="stylesheet" />
     <link href="/css/theme-08ef8807.css" rel="stylesheet" />
-    <link href="/css/custom-5e0be8fd.css" rel="stylesheet" />
+    <link href="/css/custom-1bbc051c.css" rel="stylesheet" />
     <link href="/css/font-roboto-5bce7052.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
     <script src="/js/util-3fbbf041.js"></script>
@@ -366,10 +366,10 @@ standard web browser.</p>
             <div class="col col-lg-9">
                 <h2 class="text-center">Contact</h2>
 
-                <div id="res_ok" class="form-result d-none">
+                <div id="res_ok" class="text-center form-result d-none">
                     <p>Thank you! Form submitted successfully. We'll get back to you shortly.</p>
                 </div>
-                <div id="res_err" class="form-result d-none">
+                <div id="res_err" class="text-center form-result d-none">
                     <p>Oops! Something went wrong. Your request could not be processed. Please try again later...</p>
                 </div>
 
@@ -443,6 +443,8 @@ standard web browser.</p>
             window.recaptcha_complete = function() {
                 $$.get('contact-submit').removeAttribute('disabled');
                 $$.get('contact-form').setAttribute('action', 'https://forms.iddero.com/contact');
+                // Remove field from form before submitting
+                $$.get('contact-form').elements['g-recaptcha-response'].setAttribute('disabled', '');
             };
         }
     })();
