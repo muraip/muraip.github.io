@@ -1,0 +1,1 @@
+lightbox.option({resizeDuration:100,imageFadeDuration:100,fadeDuration:100,albumLabel:document.title+": %1 / %2"}),window.mr={video:{options:{ytplayer:{startAt:.01}}}};

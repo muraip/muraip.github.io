@@ -1,1 +1,0 @@
-window.mr={video:{options:{ytplayer:{stopAt:43}}}};
